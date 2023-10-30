@@ -8,12 +8,13 @@ const router = express.Router();
 router.post("/login", (req, res) => {
   const secretKey = process.env.JWT_SECRET_KEY;
 
-  console.log("running login 123", secretKey);
   const { username, password } = req.body;
   const user = findUserByUsername(username);
 
   if (!user) {
-    return res.status(401).json({ message: "Authentication failed 1" });
+    return res
+      .status(401)
+      .json({ message: "Authentication failed, invalid user" });
   }
   if (secretKey) {
     if (password === user.password) {
@@ -24,7 +25,11 @@ router.post("/login", (req, res) => {
     }
   }
 
-  return res.status(401).json({ message: "Authentication failed 2" });
+  return res
+    .status(401)
+    .json({
+      message: "Authentication failed, user and password must match...",
+    });
 });
 
 export default router;
