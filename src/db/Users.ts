@@ -1,10 +1,19 @@
 import { User } from "../models/User";
 
 const users: User[] = [
-  { id: 1, username: "user1", password: "password1" },
-  { id: 2, username: "user2", password: "password2" },
+  {
+    id: 0,
+    username: "michel",
+    password: "$2b$10$zSFi19CeCGYBZxtDeF93WerWJ5ElwHdcm6ar6zsvzbTIcLuVqC8/K",
+  },
 ];
 
 export const findUserByUsername = (username: string): User | undefined => {
   return users.find((user) => user.username === username);
+};
+
+export const saveUser = (username: string, password: string): void => {
+  const newUserId = users.length++;
+  const newUser: User = { id: newUserId, username, password };
+  users.concat(newUser);
 };
