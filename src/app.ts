@@ -12,5 +12,6 @@ app.use("/api", loginRouter);
 app.use("/api", protectedRouter);
 
 app.listen(port, () => {
+  console.log("JWT_SECRET_KEY: ", process.env.JWT_SECRET_KEY);
   console.log(`Server is running on port ${port}`);
 });

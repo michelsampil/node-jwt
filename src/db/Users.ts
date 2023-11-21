@@ -9,11 +9,12 @@ const users: User[] = [
 ];
 
 export const findUserByUsername = (username: string): User | undefined => {
-  return users.find((user) => user.username === username);
+  const result = users.find((user) => user?.username === username);
+  return result;
 };
 
 export const saveUser = (username: string, password: string): void => {
   const newUserId = users.length++;
   const newUser: User = { id: newUserId, username, password };
-  users.concat(newUser);
+  users.push(newUser);
 };
