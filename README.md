@@ -16,6 +16,6 @@ npm install dotenv --save
 
 note: [your-secret-key-here] and [your-port] should be in plain text no "" and '' needed. example: myLittleSecrete, 3000.
 
-### Spin up the server
+### Spin up the server:
 
 npm run start
